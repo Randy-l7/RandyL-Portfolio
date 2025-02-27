@@ -1,0 +1,508 @@
+:root {
+    --blue: #008ecf;
+    --dark-blue: #2C3E50;
+    --circle-size: 2em; 
+    --text-color: #F9FAFB;
+    --background-color: #303030;
+}
+
+body.dark-mode {
+    --text-color: #585858;
+    --background-color: #
+}
+
+
+
+body {
+    overflow: hidden;
+    font-family:'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color:var(--text-color);
+    transition: background-color 0.5s ease, color 0.5s ease, transform 0.5s ease;
+}
+
+
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1em 5em; /* Header large */
+    background-color: var(--background-color);
+    transition: all 0.3s ease; /* Transition fluide pour les changements */
+    z-index: 1000;
+    border-bottom: 2px solid var(--blue); /* Ligne de couleur bleue */
+    padding-bottom: 1em; /* Espacement en bas pour éviter que la bordure colle au contenu */
+    box-sizing: border-box;
+}
+
+header.shrink {
+    padding: 0.4em 5em; /* Réduction de la hauteur du header */
+    font-size: 1em;
+    background-color: white;
+    
+    
+}
+
+header.shrink .logo {
+    font-size: 2em;
+    transition: font-size 0.5s ease;
+}
+
+
+header nav {
+    position:relative;
+    display:flex;
+    flex-direction: row;
+    
+}
+
+.mainnav ul {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.mainnav li {
+    display: flex;
+    align-items: center;
+    
+}
+
+
+.mainnav a, .mainnav button {
+    text-decoration: none;
+    font-size: 1.5em;
+    color: var(--text-color);
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.mainnav span {
+    font-size: 1.6em;
+}
+
+.mainnav a:hover, .mainnav button:hover {
+    color: #0077b5;
+}
+
+.header-wrap {
+    padding-inline: 5em;
+}
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-inline: 15em;
+    padding-inline: 1em;
+}
+
+.container-about-me {
+    padding-block: 2em;
+    background-color: var(--blue);
+    width: 100vw;
+}
+
+
+.logo {
+    font-size: 2em;
+    font-weight: 700; 
+    color: var(--blue);
+    display: flex;
+    align-items: center;
+}
+
+main {
+    margin-top: 5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2em;
+    max-width: 100%;
+
+}
+
+h1 {
+    font-size: 4em;
+}
+
+.intro {
+    padding: 1em 2em; /* Padding vertical généreux */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.intro p {
+    font-size: 2.5em;
+}
+
+.intro button {
+    padding: 1em 2.5em;
+    font-size: 1.2em;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid transparent;
+    border-radius: 25px;
+    background-color: var(--blue); /* Bleu vif, couleur moderne */
+    color: var(--text-color);
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.intro button:hover {
+    transform: translateY(-5px); /* Déplace légèrement le bouton vers le haut */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Ombre plus marquée pour l'effet de surélévation */
+}
+
+.intro button:after {
+    content: '';
+    position: absolute;
+    top: calc(var(--mouse-y, 0) - calc(var(--circle-size) / 2)); /* Centrer */
+    left: calc(var(--mouse-x, 0) - calc(var(--circle-size) / 2)); /* Centrer */
+    width: var(--circle-size);
+    height: var(--circle-size);
+    background: transparent; /* Assure qu'il n'y a pas de remplissage */
+    border-radius: 50%;
+    pointer-events: none;
+    transition: box-shadow 0.3s ease, opacity 0.3s ease;
+    opacity: 0; /* Commence avec opacité 0 */
+}
+
+.intro button.hovered:after {
+    box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.6); 
+    opacity: 1; /* Opacité à 1 quand la souris est sur le bouton */
+}
+
+.intro button:not(.hovered):after {
+    opacity: 0; /* Graduellement disparaît quand la souris quitte */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); /* Lumière faible */
+}
+
+.arrow-down {
+    padding-top: 2em;
+    
+}
+
+.arrow-down span {
+    font-size: 5em;
+    transition: transform 0.6s ease-out;
+}
+
+.arrow-down.visible span {
+    transform: translateY(10em);
+}
+
+.arrow-down.hidden span {
+    opacity: 0;
+    position: absolute;
+}
+
+.social-media-icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1em;
+    margin-bottom: 1em;
+    font-size: 2em;
+}
+
+.social-media-icon a {
+    color: var(--text-color)
+}
+
+
+.about-me {
+    display: flex;
+    flex-direction: column;
+    padding: 4em 2em;
+
+}
+
+.section-heading     {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: white; /* Violet moderne depuis les variables */
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    padding-inline: 20em;
+    
+
+}
+
+.container-about-me p {
+    padding-inline: 5em;
+    text-align: start;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.container-about-me hr {
+    background-color: white;
+}
+
+hr {
+    width: 5em;
+    border: none;
+    height: 0.1em;
+    background: var(--blue); /* Couleur de la ligne */
+    margin: 1em auto;
+  } 
+/* button:hover {
+    background-color: hsl(261deg 80% 48%);
+    color: hsl(0, 0%, 100%);
+    box-shadow: grey 0px 7px 7px 0px;
+  } */
+
+  .content {
+    padding-top: 1em 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(1em);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.content.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.page-content {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.6s ease-out;
+    overflow: hidden;
+}
+
+.page-content.visible {
+    position: relative;
+    opacity: 1;
+}
+
+.loading-screen {
+    position: fixed;
+    width: 100%;
+    height: 80%;
+    background: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Conteneur de la barre de chargement */
+.loader-bar {
+    width: 40%;
+    height: 0.6rem;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    background: white;
+    border-radius: 5px;
+}
+
+
+
+/* Partie droite de la barre */
+.loader-bar .right {
+    width: 100%;
+    background: var(--blue);
+    animation: slide-right 2s ease-in-out;
+}
+
+.letters {
+    padding: 2rem;
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--text-color);
+    z-index: 100;
+    
+}
+
+.loading-title {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    z-index: 0;
+}
+
+.line {
+    position: absolute;
+    width: 2px;  /* Ligne fine */
+    height: 2em; /* Ajuste la hauteur selon ton besoin */
+    border-radius: 5px;
+    background-color: white;
+    
+}
+
+.to-left {
+    left: 0; /* Aligné avec le début du conteneur .letters */
+}
+
+.to-right {
+    right: 0; /* Aligné avec la fin du conteneur .letters */
+}
+
+.skill {
+    padding-inline: 5em;
+}
+
+.skill span {
+    font-size: 7em;
+    color: var(--blue);
+}
+
+.skill .caption {
+    font-size: 2.5em;
+    opacity: 1;
+}
+
+.skill p {
+    font-size: 1.2em;
+    color: var(--text-color);
+    opacity: 0.6;
+}
+
+h4 {
+    font-size: 4em;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: var(--text-color);
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+    gap: 2em;
+    max-width: 75em;
+    margin: auto;
+}
+
+.card {
+  user-select: none;
+  background: var(--dark-blue);
+  padding: 1.5em;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.card-title {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+  color: var(--blue); /* Accentue le titre avec ta couleur principale */
+}
+
+.card-img {
+  width: 60%;
+  max-width: 15em;
+  height: 12em;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1em;
+}
+
+
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+ 
+
+@keyframes slide-right {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+
+}
+
+@keyframes grow-and-move {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      height: 120vh; /* La barre garde la même hauteur */
+    }
+    }
+
+@media (max-width: 768px) {
+    body {
+        overflow-x: auto; /* Active le scroll horizontal seulement si nécessaire */
+    }
+    
+    .container {
+        margin-inline: 0; /* Retirer les marges larges sur mobile */
+        padding-inline: 1em; /* Réduire le padding */
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+        gap: 1.5em;
+    }
+    
+    header {
+        padding: 1em 2em; /* Réduire le padding pour le header */
+    }
+
+    .row {
+        flex-direction: column; /* Les colonnes deviennent des lignes sur mobile */
+    }
+    
+    .column {
+        flex-basis: 100%; /* Chaque colonne prend 100% de la largeur sur mobile */
+        padding-inline: 1em; /* Réduire le padding pour plus d'espace sur les petits écrans */
+    }
+
+    /* D'autres ajustements peuvent être faits ici selon les besoins */
+}
+
+
