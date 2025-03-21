@@ -51,6 +51,9 @@ header.shrink .logo {
 }
 
 
+
+
+
 header nav {
     position:relative;
     display:flex;
@@ -415,7 +418,6 @@ footer {
 }
 
 .card {
-  user-select: none;
   background: var(--dark-blue);
   padding: 1.5em;
   border-radius: 12px;
