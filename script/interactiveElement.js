@@ -13,6 +13,15 @@ export class InteractiveElement {
     static arrowDown = document.querySelector('.arrow-down');
     static threshold = 0
     static screenPosition = 0
+
+    static updateClock() {
+        const now = new Date();
+        const hours = now.getHours().toString().padStart(2, '0');
+        const minutes = now.getMinutes().toString().padStart(2, '0');
+        const seconds = now.getSeconds().toString().padStart(2, '0');
+
+        document.querySelector('.clock').textContent = `${hours}:${minutes}:${seconds}`;
+    }
     
     static handleMouseMove(event) {
         const rect = this.aboutMeButton.getBoundingClientRect();
@@ -80,7 +89,8 @@ export class InteractiveElement {
         this.aboutMeButton.addEventListener('mousemove', (e) => this.handleMouseMove(e));
         this.aboutMeButton.addEventListener('mouseenter', () => this.handleMouseEnter());
         this.aboutMeButton.addEventListener('mouseleave', () => this.handleMouseLeave());
-        this.themeToggle.addEventListener('click', () => this.handleThemeToggle());
+        setInterval(InteractiveElement.updateClock, 1000);
+        InteractiveElement.updateClock();
         
 
     }

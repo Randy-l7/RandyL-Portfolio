@@ -28,7 +28,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 1em 5em; /* Header large */
+    padding: 2em 5em; /* Header large */
     background-color: var(--background-color);
     transition: all 0.3s ease; /* Transition fluide pour les changements */
     z-index: 1000;
@@ -40,7 +40,6 @@ header {
 header.shrink {
     padding: 0.4em 5em; /* Réduction de la hauteur du header */
     font-size: 1em;
-    background-color: white;
     
     
 }
@@ -50,7 +49,12 @@ header.shrink .logo {
     transition: font-size 0.5s ease;
 }
 
-
+.clock {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: white;
+    padding: 0.5em 1em;
+}
 
 
 
@@ -109,7 +113,7 @@ header nav {
 .container-about-me {
     padding-block: 2em;
     background-color: var(--blue);
-    width: 100vw;
+    width: 50%; 
 }
 
 
@@ -232,16 +236,18 @@ h1 {
 .about-me {
     display: flex;
     flex-direction: column;
+    align-items: center;
     padding: 4em 2em;
 
 }
 
 .section-heading     {
     font-size: 2.5em;
-    font-weight: 700;
+    font-weight: bold;
     color: white; /* Violet moderne depuis les variables */
     text-align: center;
     margin-bottom: 1em;
+    margin-top: 0;
 }
 
 .row {
@@ -253,20 +259,33 @@ h1 {
 .column {
     display: flex;
     flex-direction: column;
-    padding-inline: 20em;
     
 
 }
 
 .container-about-me p {
-    padding-inline: 5em;
     text-align: start;
     font-size: 1.2em;
-    text-align: center;
+    width: 60%;
+}
+
+h2 {
+    font-weight: 700 !important;
 }
 
 .container-about-me hr {
     background-color: white;
+}
+
+.container-about-me {
+    padding-inline: 5em;
+}
+
+.container-about-me img {
+    max-width: 100%;
+    width: 50em;
+    background-color: white;
+    border-radius: 5px;
 }
 
 hr {
@@ -371,15 +390,36 @@ hr {
 }
 
 .to-left {
-    left: 0; /* Aligné avec le début du conteneur .letters */
+    left: 0;
 }
 
 .to-right {
-    right: 0; /* Aligné avec la fin du conteneur .letters */
+    right: 0;
 }
 
 .skill {
-    padding-inline: 5em;
+        background: rgba(255, 255, 255, 0.1); /* Fond semi-transparent */
+        border-radius: 5px;
+        padding: 5em;
+        backdrop-filter: blur(0.1em); /* Effet de flou pour le style verre */
+        -webkit-backdrop-filter: blur(0.1em);
+        border: 0.1em solid rgba(255, 255, 255, 0.2); /* Bordure subtile */
+        box-shadow: 0 0.4em 1em rgba(0, 0, 0, 0.2);
+        width: 18em;
+        min-height: 20em; 
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    
+}
+
+.skill:hover {
+    transform: translateY(-0.5em) rotateX(6deg);
+    box-shadow: 0 0.4em 0.5em rgba(255, 255, 255, 0.3);
+}
+
+.skill-list .container {
+    gap: 5em;
+    margin-bottom: 4em;
 }
 
 .skill span {
@@ -423,6 +463,7 @@ footer {
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
 .card:hover {
@@ -454,6 +495,16 @@ footer {
     left: 0;
     z-index: -1;
   }
+
+
+  a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:visited {
+    color: inherit;
+}
  
 
 @keyframes slide-right {
@@ -472,39 +523,38 @@ footer {
     }
 
     100% {
-      height: 120vh; /* La barre garde la même hauteur */
+      height: 120vh; 
     }
     }
 
 @media (max-width: 768px) {
     body {
-        overflow-x: auto; /* Active le scroll horizontal seulement si nécessaire */
+        overflow-x: auto;
     }
     
     .container {
-        margin-inline: 0; /* Retirer les marges larges sur mobile */
-        padding-inline: 1em; /* Réduire le padding */
+        margin-inline: 0; 
+        padding-inline: 1em; 
     }
 
     .card-grid {
-        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
-        gap: 1.5em;
+        grid-template-columns: 1fr; 
     }
     
     header {
-        padding: 1em 2em; /* Réduire le padding pour le header */
+        padding: 1em 2em; 
     }
 
     .row {
-        flex-direction: column; /* Les colonnes deviennent des lignes sur mobile */
+        flex-direction: column;
     }
     
     .column {
-        flex-basis: 100%; /* Chaque colonne prend 100% de la largeur sur mobile */
-        padding-inline: 1em; /* Réduire le padding pour plus d'espace sur les petits écrans */
+        flex-basis: 100%; 
+        padding-inline: 1em;
     }
 
-    /* D'autres ajustements peuvent être faits ici selon les besoins */
+
 }
 
 
