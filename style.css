@@ -453,7 +453,7 @@ footer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
     gap: 2em;
-    max-width: 75em;
+    max-width: 50em;
     margin: auto;
 }
 
@@ -485,6 +485,7 @@ footer {
   border-radius: 8px;
   margin-bottom: 1em;
 }
+
 
 
 #particles-js {
