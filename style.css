@@ -1,3 +1,5 @@
+
+
 :root {
     --blue: #008ecf;
     --dark-blue: #2C3E50;
@@ -13,12 +15,18 @@ body.dark-mode {
 
 
 
+
+
 body {
     overflow: hidden;
     font-family:'Roboto', sans-serif;
     background-color: var(--background-color);
     color:var(--text-color);
     transition: background-color 0.5s ease, color 0.5s ease, transform 0.5s ease;
+    margin: 0;
+    
+    margin: 0;
+  overflow-x: hidden;
 }
 
 
@@ -113,7 +121,7 @@ header nav {
 .container-about-me {
     padding-block: 2em;
     background-color: var(--blue);
-    width: 50%; 
+    width: 50%;
 }
 
 
@@ -529,6 +537,11 @@ a:visited {
     }
 
 @media (max-width: 768px) {
+
+    * {
+        box-sizing: border-box;
+
+    }
     body {
         overflow-x: auto;
     }
@@ -536,16 +549,40 @@ a:visited {
     .container {
         margin-inline: 0; 
         padding-inline: 1em; 
+        flex-wrap: wrap;
+        justify-content: center;
+        
     }
 
+    .card {
+        margin-inline: 1em;
+        width: 50%;
+
+    }
+
+
+
     .card-grid {
-        grid-template-columns: 1fr; 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .card-img {
+        width: 50%;
+        height: auto;
+        margin: 0;
+    }
+    .card-title {
+        margin-block: 1em;
     }
     
     header {
         padding: 1em 2em; 
     }
-
+w
     .row {
         flex-direction: column;
     }
@@ -553,9 +590,62 @@ a:visited {
     .column {
         flex-basis: 100%; 
         padding-inline: 1em;
+        align-items: center;
     }
 
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+  
+      .self-image {
+          width: 20%;
+      }
+      .container-about-me {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+      }
 
-}
+      .container-about-me .row {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+      }
+        .container-about-me p {
+            width: 100%;
+        }
+
+        .self-image {
+            display: none;
+        }
+
+        .logo {
+            text-align: center;
+        }
+
+        .caption {
+            text-align: center;
+    }
+
+    .skill {
+        box-sizing: content-box;
+    }
+
+    h4 {
+        padding-inline: 1em;
+    }
+
+  }
+  
+     
+
+
+
+
+
 
 
